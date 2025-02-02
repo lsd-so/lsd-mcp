@@ -1,6 +1,6 @@
 # LSD MCP server
 
-GIF with claude taking in some prompt and then doing LSD things in background before surfacing back to user some impressive information
+![Getting trending repositories using LSD](/media/github_trending.gif)
 
 We treated Claude to psychedelic therapy on LSD and now it can just do things.
 
