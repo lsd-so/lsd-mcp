@@ -32,3 +32,5 @@ Designed to target browsers instead of [an architecture](https://llvm.org/), LSD
 ## Capabilities
 
 From a high level, Claude can see, interact, and communicate with the web like a human. Here's an example of Claude writing LSD SQL to make an order on OpenTable.
+
+GIF of ordering from OpenTable.
