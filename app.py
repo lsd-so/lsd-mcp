@@ -1,7 +1,7 @@
 from mcp.server.fastmcp import Context, FastMCP
 import os
 import psycopg2
-from typing import List
+from typing import Dict, List
 import urllib.parse
 
 

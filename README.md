@@ -25,6 +25,7 @@ To use LSD, you'll need to sign up and [create an API key](https://lsd.so/profil
 
 ```
 $ git clone https://github.com/lsd-so/lsd-mcp.git
+$ cd lsd-mcp
 ```
 
 2. Update the values in the `.env` file with `LSD_USER` containing the email you have an account on LSD with and `LSD_API_KEY` containing the API key you obtained from the profile page.
