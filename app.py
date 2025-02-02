@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from mcp.server.fastmcp import Context, FastMCP
 import os
 import psycopg2
@@ -5,6 +6,7 @@ from typing import Dict, List
 import urllib.parse
 
 
+load_dotenv()
 mcp = FastMCP("LSD", dependencies=["psycopg2-binary"])
 conn = psycopg2.connect(
     host="lsd.so",

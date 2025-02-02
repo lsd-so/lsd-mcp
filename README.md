@@ -7,6 +7,10 @@ We treated Claude to psychedelic therapy on LSD and now it can just do things.
 ## Contents
 
 * [Quickstart](#quickstart)
+  * [Dependencies](#dependencies)
+  * [Giving Claude LSD](#giving-claude-lsd)
+  * [Claude on LSD](#claude-on-lsd)
+  * [Troubleshooting](#troubleshooting)
 * [What is MCP?](#what-is-mcp)
 * [What is LSD?](#what-is-lsd)
 * [Capabilities](#capabilities)
@@ -43,17 +47,29 @@ $ uv run mcp install app.py
 
 4. Restart the Claude desktop app and, now, Claude should be able to do trippy things on LSD.
 
+### Claude on LSD
+
+If it's the first time in a chat session where you'd like to have Claude use LSD, because we're not popular enough to get caught in Anthropic's crawls, you'll need to first leverage our custom prompt which feeds in our documentation as part of the assistance.
+
+GIF showing using the prompt from MCP
+
+See the `write_lsd_sql` if you're interested in how it works but it just boils down to a [convenient rule we added to our SCAN keyword](https://lsd.so/docs/database/language/keywords/scan#example) enabling a developer or LLM to retrieve the documentation for our language in markdown ([if you'd like to run it yourself](https://lsd.so/app?query=SCAN%20https%3A%2F%2Flsd.so%2Fdocs)).
+
+```
+SCAN https://lsd.so/docs
+```
+
 ### Troubleshooting
 
 #### Failed to start MCP server
 
-If you encounter an error when starting Claude desktop along the lines of the following message:
+If you encounter error messages when starting Claude desktop along the lines of the following message:
 
 ```
 Failed to start MCP server: Could not start MCP server LSD: Error: sapawn uv ENOENT
 ```
 
-Then, in the location [where `claude_desktop_config.json` is stored](https://modelcontextprotocol.io/quickstart/user#2-add-the-filesystem-mcp-server), modify the value of the `command` key under `mcpServers.LSD` to contain the full path to running `uv` (run `which uv` in your terminal if you don't already know).
+Then, in the location [where `claude_desktop_config.json` is stored](https://modelcontextprotocol.io/quickstart/user#2-add-the-filesystem-mcp-server) (is `~/Library/Application Support/Claude/claude_desktop_config.json` if you're running on a Mac), modify the value of the `command` key under `mcpServers -> LSD` to contain the full path to running `uv` (run `which uv` in your terminal if you don't already know what it is).
 
 ```diff
 {
