@@ -11,6 +11,8 @@ We treated Claude to psychedelic therapy on LSD and now it can just do things.
   * [Giving Claude LSD](#giving-claude-lsd)
   * [Claude on LSD](#claude-on-lsd)
   * [Failed to start MCP server](#failed-to-start-mcp-server)
+	* [First time running an MCP server](#first-time-running-an-mcp-server)
+	* [Incomplete path](#incomplete-path)
 * [What is MCP?](#what-is-mcp)
 * [What is LSD?](#what-is-lsd)
 * [Capabilities](#capabilities)
@@ -69,9 +71,13 @@ If you encounter error messages when starting Claude desktop along the lines of 
 Failed to start MCP server: Could not start MCP server LSD: Error: sapawn uv ENOENT
 ```
 
-If this is your first time using an MCP server on your computer than, to remedy the error shown above, follow the instructions [under the **Add the Filesystem MCP Server** step](https://modelcontextprotocol.io/quickstart/user#2-add-the-filesystem-mcp-server) to create a `claude_desktop_config.json` file.
+#### First time running an MCP server
 
-Then, in the location [where `claude_desktop_config.json` is stored](https://modelcontextprotocol.io/quickstart/user#2-add-the-filesystem-mcp-server) (is `~/Library/Application Support/Claude/claude_desktop_config.json` if you're running on a Mac), modify the value of the `command` key under `mcpServers -> LSD` to contain the full path to running `uv` (run `which uv` in your terminal if you don't already know what it is).
+If this is your first time using an MCP server on your computer than, to remedy the error shown above, follow the instructions [under the **Add the Filesystem MCP Server** step](https://modelcontextprotocol.io/quickstart/user#2-add-the-filesystem-mcp-server) to create a `claude_desktop_config.json` file that Claude desktop can know to refer to.
+
+#### Incomplete path
+
+Otherwise and maybe in addition to the issue shown above, in the location [where `claude_desktop_config.json` is stored](https://modelcontextprotocol.io/quickstart/user#2-add-the-filesystem-mcp-server) (is `~/Library/Application Support/Claude/claude_desktop_config.json` if you're running on a Mac), modify the value of the `command` key under `mcpServers -> LSD` to contain the full path to running `uv` (run `which uv` in your terminal if you don't already know what it is).
 
 ```diff
 {
