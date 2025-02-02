@@ -13,11 +13,13 @@ We treated Claude to psychedelic therapy on LSD and now it can just do things.
 
 ## Quickstart
 
-You'll need both [Python](https://www.python.org/) and the [Claude desktop app](https://claude.ai/download) installed. To get started, clone this repository onto your computer.
+### Dependencies
 
-```bash
-$ git clone git@github.com:lsd-so/mcp.git
-```
+To run MCP server, you'll need both [Python](https://www.python.org/) and [uv](https://docs.astral.sh/uv/) installed. To use the MCP server, you'll need to download either the [Claude desktop app](https://claude.ai/download) or [another MCP client](https://modelcontextprotocol.io/clients).
+
+### Giving Claude LSD
+
+
 
 ## What is MCP?
 
