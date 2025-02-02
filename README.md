@@ -51,7 +51,7 @@ $ uv run mcp install app.py
 
 If it's the first time in a chat session where you'd like to have Claude use LSD, because we're not popular enough to get caught in Anthropic's crawls, you'll need to first leverage our custom prompt which feeds in our documentation as part of the assistance.
 
-GIF showing using the prompt from MCP
+<video src="https://github.com/lsd-so/lsd-mcp/raw/refs/heads/main/media/Screen%20Recording%202025-02-02%20at%201.40.33%E2%80%AFAM.mov" controls />
 
 See the `write_lsd_sql` if you're interested in how it works but it just boils down to a [convenient rule we added to our SCAN keyword](https://lsd.so/docs/database/language/keywords/scan#example) enabling a developer or LLM to retrieve the documentation for our language in markdown ([if you'd like to run it yourself](https://lsd.so/app?query=SCAN%20https%3A%2F%2Flsd.so%2Fdocs)).
 
