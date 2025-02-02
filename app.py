@@ -16,8 +16,6 @@ conn = psycopg2.connect(
     port="5432",
 )
 
-shared_docs = False
-
 @mcp.tool()
 def run_lsd(lsd_sql_code: str) -> List[List[str]]:
     """Runs LSD SQL using user credentials in .env"""
@@ -50,9 +48,7 @@ def write_lsd_sql(objective: str) -> str:
             lsd_docs = [{"URL": r[0], "MARKDOWN": r[1]} for r in rows]
         shared_docs = True
 
-        return f"""Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}"""
-
-    return f"""You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}"""
+    return f"""Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}"""
 
 @mcp.prompt()
 async def write_and_run_lsd_sql(objective: str) -> str:
@@ -66,6 +62,4 @@ async def write_and_run_lsd_sql(objective: str) -> str:
             lsd_docs = [{"URL": r[0], "MARKDOWN": r[1]} for r in rows]
         shared_docs = True
 
-        return f"""Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}. When done run the LSD SQL statement and present the results to the user"""
-
-    return f"""You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}"""
+    return f"""Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}. When done run the LSD SQL statement and present the results to the user"""
