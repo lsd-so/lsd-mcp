@@ -61,6 +61,8 @@ SCAN https://lsd.so/docs
 
 ### Failed to start MCP server
 
+![Using custom prompt](/media/error.jpeg)
+
 If you encounter error messages when starting Claude desktop along the lines of the following message:
 
 ```
