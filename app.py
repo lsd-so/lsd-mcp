@@ -15,9 +15,8 @@ conn = psycopg2.connect(
 )
 
 @mcp.tool()
-def run_lsd(lsd_sql_code: str, ctx: Context) -> List[List[str]]:
+def run_lsd(lsd_sql_code: str) -> List[List[str]]:
     """Runs LSD SQL using user credentials in .env"""
-    lsd_docs = ctx.read_resource("lsd://docs")
     with conn.cursor() as curs:
         curs.execute(lsd_sql_code)
         rows = curs.fetchall()
@@ -36,6 +35,6 @@ def fetch_lsd_docs() -> List[Dict[str, str]]:
         return [{"URL": r[0], "MARKDOWN": r[1]} for r in rows]
 
 @mcp.prompt()
-def write_lsd_sql(objective: str, ctx: Context) -> str:
+def write_lsd_sql(objective: str) -> str:
     lsd_docs = ctx.read_resource("lsd://docs")
     return f"""Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} Using the keywords, {objective}"""
