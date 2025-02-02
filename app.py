@@ -15,8 +15,9 @@ conn = psycopg2.connect(
 )
 
 @mcp.tool()
-def run_lsd(lsd_sql_code: str) -> List[List[str]]:
+def run_lsd(lsd_sql_code: str, ctx: Context) -> List[List[str]]:
     """Runs LSD SQL using user credentials in .env"""
+    lsd_docs = ctx.read_resource("lsd://docs")
     with conn.cursor() as curs:
         curs.execute(lsd_sql_code)
         rows = curs.fetchall()

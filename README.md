@@ -43,6 +43,41 @@ $ uv run mcp install app.py
 
 4. Restart the Claude desktop app and, now, Claude should be able to do trippy things on LSD.
 
+### Troubleshooting
+
+#### Failed to start MCP server
+
+If you encounter an error when starting Claude desktop along the lines of the following message:
+
+```
+Failed to start MCP server: Could not start MCP server LSD: Error: sapawn uv ENOENT
+```
+
+Then, in the location [where `claude_desktop_config.json` is stored](https://modelcontextprotocol.io/quickstart/user#2-add-the-filesystem-mcp-server), modify the value of the `command` key under `mcpServers.LSD` to contain the full path to running `uv` (run `which uv` in your terminal if you don't already know).
+
+```diff
+{
+  "mcpServers": {
+    "LSD": {
+-      "command": "uv",
++      "command": "/Users/your_name/.local/bin/uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp[cli]",
+        "--with",
+        "psycopg2-binary",
+        "mcp",
+        "run",
+        "/Users/y/testing-mcp/lsd-mcp/app.py"
+      ]
+    }
+  }
+}
+```
+
+Once you've done that, restart Claude desktop and the problem should be resolved. If not, please [file an issue](https://github.com/lsd-so/lsd-mcp/issues/new?template=Blank+issue).
+
 ## What is MCP?
 
 MCP, short for [model context protocol](https://modelcontextprotocol.io/introduction), provides a communication layer between [Claude](https://claude.ai) and computer-accessible interfaces such as [the filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) or [web APIs](https://github.com/modelcontextprotocol/servers/tree/main/src/slack). If a limiting factor of LLMs was its detachment from the "real world" since it's just a text generating model, MCP allows users and developers to bring Claude to life.
