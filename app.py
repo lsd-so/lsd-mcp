@@ -8,17 +8,20 @@ import urllib.parse
 
 load_dotenv()
 mcp = FastMCP("LSD", dependencies=["psycopg2-binary"])
-conn = psycopg2.connect(
-    host="lsd.so",
-    database=os.environ.get("LSD_USER"),
-    user=os.environ.get("LSD_USER"),
-    password=os.environ.get("LSD_API_KEY"),
-    port="5432",
-)
+
+def establish_connection():
+    return psycopg2.connect(
+        host="lsd.so",
+        database=os.environ.get("LSD_USER"),
+        user=os.environ.get("LSD_USER"),
+        password=os.environ.get("LSD_API_KEY"),
+        port="5432",
+    )
 
 @mcp.tool()
 def run_lsd(lsd_sql_code: str) -> List[List[str]]:
     """Runs LSD SQL using user credentials in .env"""
+    conn = establish_connection()
     with conn.cursor() as curs:
         curs.execute(lsd_sql_code)
         rows = curs.fetchall()
@@ -31,6 +34,7 @@ async def view_lsd(lsd_sql_code: str) -> str:
 
 @mcp.resource("lsd://docs")
 def fetch_lsd_docs() -> List[Dict[str, str]]:
+    conn = establish_connection()
     with conn.cursor() as curs:
         curs.execute("SCAN https://lsd.so/docs")
         rows = curs.fetchall()
@@ -39,6 +43,7 @@ def fetch_lsd_docs() -> List[Dict[str, str]]:
 @mcp.prompt()
 def write_lsd_sql(objective: str) -> str:
     # Programmatically inserting docs to context
+    conn = establish_connection()
     with conn.cursor() as curs:
         curs.execute("SCAN https://lsd.so/docs")
         rows = curs.fetchall()
@@ -49,6 +54,7 @@ def write_lsd_sql(objective: str) -> str:
 @mcp.prompt()
 async def write_and_run_lsd_sql(objective: str) -> str:
     # Programmatically inserting docs to context
+    conn = establish_connection()
     with conn.cursor() as curs:
         curs.execute("SCAN https://lsd.so/docs")
         rows = curs.fetchall()
