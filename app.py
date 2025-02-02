@@ -1,0 +1,33 @@
+from mcp.server.fastmcp import FastMCP
+import os
+import psycopg2
+from typing import List
+import urllib.parse
+
+
+mcp = FastMCP("LSD", dependencies=["psycopg2-binary"])
+conn = psycopg2.connect(
+    host="lsd.so",
+    database=os.environ.get("LSD_USER"),
+    user=os.environ.get("LSD_USER"),
+    password=os.environ.get("LSD_API_KEY"),
+    port="5432",
+)
+
+@mcp.tool()
+def run_lsd(lsd_sql_code: str) -> List[List[str]]:
+    """Runs LSD SQL using user credentials in .env"""
+    conn = get_or_create_connection()
+    with conn.cursor() as curs:
+        curs.execute(lsd_sql_code)
+        rows = curs.fetchall()
+        return [list(r) for r in rows]
+
+@mcp.tool()
+def view_lsd(lsd_sql_code: str) -> str:
+    """"Returns a URL to a page where the user can view results as well as a visual playback of LSD SQL evaluation"""
+    return f"https://lsd.so/view?query={urllib.parse.quote_plus(lsd_sql_code)}"
+
+@mcp.prompt()
+def write_lsd_sql(objective: str) -> str:
+    return f"""Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} Using the keywords, {objective}"""
