@@ -15,7 +15,7 @@ We treated Claude to psychedelic therapy on LSD and now it can just do things.
 
 ### Dependencies
 
-To run MCP server, you'll need both [Python](https://www.python.org/) and [uv](https://docs.astral.sh/uv/) installed. To use the MCP server, you'll need to download either the [Claude desktop app](https://claude.ai/download) or [another MCP client](https://modelcontextprotocol.io/clients).
+To run the MCP server, you'll need both [Python](https://www.python.org/) and [uv](https://docs.astral.sh/uv/) installed. To use the MCP server, you'll need to download either the [Claude desktop app](https://claude.ai/download) or [another MCP client](https://modelcontextprotocol.io/clients).
 
 To use LSD, you'll need to sign up and [create an API key](https://lsd.so/profile) so your queries are privately associated to only your account. You can do so [for free with a Google account](https://lsd.so/connect).
 
@@ -27,7 +27,7 @@ To use LSD, you'll need to sign up and [create an API key](https://lsd.so/profil
 $ git clone https://github.com/lsd-so/lsd-mcp.git
 ```
 
-2. Update the values in the `.env` file with `LSD_USER` containing the email you have an account on LSD with and `LSD_API_KEY` containing an API key obtained from the profile page.
+2. Update the values in the `.env` file with `LSD_USER` containing the email you have an account on LSD with and `LSD_API_KEY` containing the API key you obtained from the profile page.
 
 ```
 LSD_USER=<your_email_here>
