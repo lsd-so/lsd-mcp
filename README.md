@@ -10,7 +10,7 @@ We treated Claude to psychedelic therapy on LSD and now it can just do things.
   * [Dependencies](#dependencies)
   * [Giving Claude LSD](#giving-claude-lsd)
   * [Claude on LSD](#claude-on-lsd)
-  * [Troubleshooting](#troubleshooting)
+  * [Failed to start MCP server](#failed-to-start-mcp-server)
 * [What is MCP?](#what-is-mcp)
 * [What is LSD?](#what-is-lsd)
 * [Capabilities](#capabilities)
@@ -53,15 +53,13 @@ If it's the first time in a chat session where you'd like to have Claude use LSD
 
 ![Using custom prompt](/media/prompt.gif)
 
-See the [`write_lsd_sql` function](https://github.com/lsd-so/lsd-mcp/blob/main/app.py#L55) if you're interested in how it works but it just boils down to a [convenient rule we added to our SCAN keyword](https://lsd.so/docs/database/language/keywords/scan#example) enabling a developer or LLM to retrieve the documentation for our language in markdown ([if you'd like to run it yourself](https://lsd.so/app?query=SCAN%20https%3A%2F%2Flsd.so%2Fdocs)).
+See the [`write_lsd_sql` function](https://github.com/lsd-so/lsd-mcp/blob/main/app.py#L48) if you're interested in how it works but it just boils down to a [convenient rule we added to our SCAN keyword](https://lsd.so/docs/database/language/keywords/scan#example) enabling a developer or LLM to retrieve the documentation for our language in markdown ([if you'd like to run it yourself](https://lsd.so/app?query=SCAN%20https%3A%2F%2Flsd.so%2Fdocs)).
 
 ```
 SCAN https://lsd.so/docs
 ```
 
-### Troubleshooting
-
-#### Failed to start MCP server
+### Failed to start MCP server
 
 If you encounter error messages when starting Claude desktop along the lines of the following message:
 
@@ -106,6 +104,4 @@ Designed to target browsers instead of [an architecture](https://llvm.org/), LSD
 
 ## Capabilities
 
-From a high level, Claude can see, interact, and communicate with the web like a human. Here's an example of Claude writing LSD SQL to make an order on OpenTable.
-
-GIF of ordering from OpenTable.
+From a high level, Claude can see, interact, and communicate with the web like a human. Here's a recording of Claude going to the MCP documentation, diving into the links corresponding to their SDKs, then returning the markdown content.

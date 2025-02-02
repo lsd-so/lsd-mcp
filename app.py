@@ -9,6 +9,10 @@ import urllib.parse
 load_dotenv()
 mcp = FastMCP("LSD", dependencies=["psycopg2-binary"])
 
+LSD_PROMPT = """
+Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}
+"""
+
 def establish_connection():
     return psycopg2.connect(
         host="lsd.so",
@@ -49,7 +53,7 @@ def write_lsd_sql(objective: str) -> str:
         rows = curs.fetchall()
         lsd_docs = [{"URL": r[0], "MARKDOWN": r[1]} for r in rows]
 
-    return f"""Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}"""
+    return LSD_PROMPT.format(lsd_docs=lsd_docs, objective=objective)
 
 @mcp.prompt()
 async def write_and_run_lsd_sql(objective: str) -> str:
@@ -60,4 +64,4 @@ async def write_and_run_lsd_sql(objective: str) -> str:
         rows = curs.fetchall()
         lsd_docs = [{"URL": r[0], "MARKDOWN": r[1]} for r in rows]
 
-    return f"""Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}. When done run the LSD SQL statement and present the results to the user"""
+    return LSD_PROMPT.format(lsd_docs=lsd_docs, objective=objective)
