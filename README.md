@@ -1,5 +1,7 @@
 # LSD MCP server
 
+[![smithery badge](https://smithery.ai/badge/@lsd-so/lsd-mcp)](https://smithery.ai/server/@lsd-so/lsd-mcp)
+
 Immediately gather an aggregation of high quality info directly from a website just by giving LSD the link via Claude MCP.
 
 You will see Claude connect to the internet and:
@@ -25,6 +27,14 @@ We treated Claude to psychedelic therapy on LSD and now it can just do things. [
   * [Contact](#contact)
 
 ## Quickstart
+
+### Installing via Smithery
+
+To install LSD MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@lsd-so/lsd-mcp):
+
+```bash
+npx -y @smithery/cli install @lsd-so/lsd-mcp --client claude
+```
 
 ### Dependencies
 
