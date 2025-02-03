@@ -8,7 +8,7 @@ from time import sleep
 
 
 load_dotenv()
-mcp = FastMCP("LSD", dependencies=["psycopg2-binary", "urllib.parse"])
+mcp = FastMCP("LSD", dependencies=["psycopg2-binary"])
 
 LSD_PROMPT = """
 Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}.
