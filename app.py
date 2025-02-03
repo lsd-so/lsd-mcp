@@ -4,23 +4,28 @@ import os
 import psycopg2
 from typing import Dict, List
 import urllib.parse
+from time import sleep
 
 
 load_dotenv()
-mcp = FastMCP("LSD", dependencies=["psycopg2-binary"])
+mcp = FastMCP("LSD", dependencies=["psycopg2-binary", "urllib.parse"])
 
 LSD_PROMPT = """
-Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}
+Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}.
 """
 
 def establish_connection():
-    return psycopg2.connect(
-        host="lsd.so",
-        database=os.environ.get("LSD_USER"),
-        user=os.environ.get("LSD_USER"),
-        password=os.environ.get("LSD_API_KEY"),
-        port="5432",
-    )
+    try:
+        return psycopg2.connect(
+            host="lsd.so",
+            database=os.environ.get("LSD_USER"),
+            user=os.environ.get("LSD_USER"),
+            password=os.environ.get("LSD_API_KEY"),
+            port="5432",
+        )
+    except Exception as e:
+        sleep(1)
+        return establish_connection()
 
 @mcp.tool()
 def run_lsd(lsd_sql_code: str) -> List[List[str]]:
@@ -64,4 +69,4 @@ async def write_and_run_lsd_sql(objective: str) -> str:
         rows = curs.fetchall()
         lsd_docs = [{"URL": r[0], "MARKDOWN": r[1]} for r in rows]
 
-    return LSD_PROMPT.format(lsd_docs=lsd_docs, objective=objective)
+    return LSD_PROMPT.format(lsd_docs=lsd_docs, objective=objective) + ". When done, run the LSD SQL trip and present the results to the user"
