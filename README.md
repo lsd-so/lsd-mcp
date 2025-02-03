@@ -2,7 +2,7 @@
 
 ![Getting trending repositories using LSD](/media/github_trending.gif)
 
-We treated Claude to psychedelic therapy on LSD and now it can just do things. [Here's a longer video on YouTube](https://youtu.be/s97G-E46-Yo)
+We treated Claude to psychedelic therapy on LSD ([here's an example of something you can do with LSD](https://lsd.so/app?query=calculators%20%3C%7C%20https%3A%2F%2Fwww.smooth-on.com%2Fsupport%2Fcalculators%2F%20%7C%0Apour_on_mold%20%3C%7C%20div%5Bdata-calcid%3D%22pour-mold%22%5D%20%7C%0Aproduct_dropdown%20%3C%7C%20%23pour-prod%20%7C%0Adropdown_value%20%3C%7C%20%2224.7%22%20%7C%0Amodel_volume_input%20%3C%7C%20%23pour-model-volume%20%7C%0Amodel_volume%20%3C%7C%20%2212%22%20%7C%0Abox_volume_input%20%3C%7C%20%23pour-box-volume%20%7C%0Abox_volume%20%3C%7C%20%2220%22%20%7C%0Acalculate_button%20%3C%7C%20%23pour-calculate%20%7C%0Aestimate%20%3C%7C%20%23pour-results%20%7C%0A%0AFROM%20calculators%0A%7C%3E%20CLICK%20ON%20pour_on_mold%0A%7C%3E%20CHOOSE%20IN%20product_dropdown%20dropdown_value%0A%7C%3E%20ENTER%20INTO%20model_volume_input%20model_volume%0A%7C%3E%20ENTER%20INTO%20box_volume_input%20box_volume%0A%7C%3E%20CLICK%20ON%20calculate_button%0A%7C%3E%20SELECT%20estimate)) and now it can just do things. [Here's a longer video on YouTube](https://youtu.be/s97G-E46-Yo)
 
 ## Contents
 
