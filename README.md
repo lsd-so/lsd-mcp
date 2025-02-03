@@ -23,8 +23,6 @@ We treated Claude to psychedelic therapy on LSD and now it can just do things. [
 * [What is MCP?](#what-is-mcp)
 * [What is LSD?](#what-is-lsd)
   * [Contact](#contact)
-* [Smithery](#smithery)
-  * [Installing via Smithery](#installing-via-smithery)
 
 ## Quickstart
 
@@ -128,15 +126,3 @@ Designed to target browsers instead of [an architecture](https://llvm.org/), LSD
 ### Contact
 
 Reach out to pranav at lsd dot so if you have any questions.
-
-## Smithery
-
-[![smithery badge](https://smithery.ai/badge/@lsd-so/lsd-mcp)](https://smithery.ai/server/@lsd-so/lsd-mcp)
-
-### Installing via Smithery
-
-To install LSD MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@lsd-so/lsd-mcp):
-
-```bash
-npx -y @smithery/cli install @lsd-so/lsd-mcp --client claude
-```
