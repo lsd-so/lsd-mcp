@@ -1,5 +1,7 @@
 # LSD MCP server
 
+Immediately gather an aggregation of high quality info directly from a website just by giving LSD the link via Claude MCP.
+
 ![Getting trending repositories using LSD](/media/github_trending.gif)
 
 We treated Claude to psychedelic therapy on LSD and now it can just do things. [Here's a longer video on YouTube](https://youtu.be/s97G-E46-Yo)
