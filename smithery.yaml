@@ -1,0 +1,21 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - lsdUser
+      - lsdApiKey
+    properties:
+      lsdUser:
+        type: string
+        description: Email address for the LSD account.
+      lsdApiKey:
+        type: string
+        description: API key from the LSD profile page.
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({command: 'uv', args: ['run', 'mcp', 'install', 'app.py'], env: {LSD_USER: config.lsdUser, LSD_API_KEY: config.lsdApiKey}})
