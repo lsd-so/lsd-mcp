@@ -46,6 +46,8 @@ LSD_API_KEY=<api_key_from_your_profile_page>
 $ uv run mcp install app.py
 ```
 
+**Note:** Every time you run `mcp install`, if you needed to update `claude_desktop_config.json` [the first time](#first-time-running-an-mcp-server), you will need to remember to update the path to `uv` each time you install the MCP server.
+
 4. Restart the Claude desktop app and, now, Claude should be able to do trippy things on LSD.
 
 ### Claude on LSD
