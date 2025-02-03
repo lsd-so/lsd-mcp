@@ -12,6 +12,18 @@ mcp = FastMCP("LSD", dependencies=["psycopg2-binary"])
 
 LSD_PROMPT = """
 Here is documentation for a custom SQL language called LSD in a JSON list of objects where one has a MARKDOWN property with the markdown content of the page and a URL property with the URL of the page it belongs to. {lsd_docs} You may run LSD SQL along the way to obtain HTML or MARKDOWN in order to answer user inquiries. Using the keywords, {objective}.
+Here is an example of how to assign variables and run a query:
+'''
+post_container <| div.details |
+post <| a |
+domain <| a.domain |
+author <| a.u-author.h-card |
+
+FROM https://lobste.rs/
+|> GROUP BY post_container
+|> SELECT post, domain, author
+'''
+
 """
 
 def establish_connection():
