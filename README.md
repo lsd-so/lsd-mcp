@@ -2,6 +2,11 @@
 
 Immediately gather an aggregation of high quality info directly from a website just by giving LSD the link via Claude MCP.
 
+You will see Claude connect to the internet and:
+* Write LSD SQL
+* Self-correct LSD SQL
+* Run LSD SQL that's connected to cloud browsers
+
 ![Getting trending repositories using LSD](/media/github_trending.gif)
 
 We treated Claude to psychedelic therapy on LSD and now it can just do things. [Here's a longer video on YouTube](https://youtu.be/s97G-E46-Yo)
