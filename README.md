@@ -109,6 +109,6 @@ MCP, short for [model context protocol](https://modelcontextprotocol.io/introduc
 
 ## What is LSD?
 
-LSD, a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) for the web, enables developers to connect the internet to your applications as though it were a [postgres compatible database](https://lsd.so/docs/database/postgres). Rather than present [a new semantic web ontology](https://xkcd.com/927/) or [make a new internet](https://urbit.org/), LSD SQL provides a dynamic declarative language that sits atop the existing one.
+LSD SQL, a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) for the web, enables developers to connect the internet to your applications as though it were a [postgres compatible database](https://lsd.so/docs/database/postgres). Rather than present [a new semantic web ontology](https://xkcd.com/927/) or [make a new internet](https://urbit.org/), it provides a dynamic declarative language that sits atop the existing one.
 
-Designed to target browsers instead of [an architecture](https://llvm.org/), LSD allows for [powerful parallelization](https://lsd.so/docs/database/language/keywords/dive#example) while preserving simplicity with just-in-time tables meaning you can just get data without running a CREATE TABLE beforehand.
+Designed to target browsers instead of [an architecture](https://llvm.org/), LSD allows for [powerful parallelization](https://lsd.so/docs/database/language/keywords/dive#example) while preserving simplicity with just-in-time tables meaning you can just get data without running a CREATE TABLE beforehand. [Sign up for free with a Google account](https://lsd.so/connect) to start querying the internet!
