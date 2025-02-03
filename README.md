@@ -83,7 +83,7 @@ Otherwise and maybe in addition to the issue shown above, in the location [where
   "mcpServers": {
     "LSD": {
 -      "command": "uv",
-+      "command": "/Users/your_name/.local/bin/uv",
++      "command": "/Users/your_mac_name/.local/bin/uv",
       "args": [
         "run",
         "--with",
