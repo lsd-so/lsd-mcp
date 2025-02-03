@@ -15,7 +15,6 @@ We treated Claude to psychedelic therapy on LSD and now it can just do things.
 	* [Incomplete path](#incomplete-path)
 * [What is MCP?](#what-is-mcp)
 * [What is LSD?](#what-is-lsd)
-* [Capabilities](#capabilities)
 
 ## Quickstart
 
@@ -111,7 +110,3 @@ MCP, short for [model context protocol](https://modelcontextprotocol.io/introduc
 LSD, a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) for the web, enables developers to connect the internet to your applications as though it were a [postgres compatible database](https://lsd.so/docs/database/postgres). Rather than present [a new semantic web ontology](https://xkcd.com/927/) or [make a new internet](https://urbit.org/), LSD SQL provides a dynamic declarative language that sits atop the existing one.
 
 Designed to target browsers instead of [an architecture](https://llvm.org/), LSD allows for [powerful parallelization](https://lsd.so/docs/database/language/keywords/dive#example) while preserving simplicity with just-in-time tables meaning you can just get data without running a CREATE TABLE beforehand.
-
-## Capabilities
-
-From a high level, Claude can see, interact, and communicate with the web like a human. Here's a recording of Claude going to the MCP documentation, diving into the links corresponding to their SDKs, then returning the markdown content.
