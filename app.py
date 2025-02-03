@@ -37,7 +37,7 @@ def run_lsd(lsd_sql_code: str) -> List[List[str]]:
         return [list(r) for r in rows]
 
 @mcp.tool()
-async def view_lsd(lsd_sql_code: str) -> str:
+def view_lsd(lsd_sql_code: str) -> str:
     """"Returns a URL to a page where the user can view results as well as a visual playback of LSD SQL evaluation"""
     return f"https://lsd.so/view?query={urllib.parse.quote_plus(lsd_sql_code)}"
 
@@ -61,7 +61,7 @@ def write_lsd_sql(objective: str) -> str:
     return LSD_PROMPT.format(lsd_docs=lsd_docs, objective=objective)
 
 @mcp.prompt()
-async def write_and_run_lsd_sql(objective: str) -> str:
+def write_and_run_lsd_sql(objective: str) -> str:
     # Programmatically inserting docs to context
     conn = establish_connection()
     with conn.cursor() as curs:
