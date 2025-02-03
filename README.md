@@ -7,7 +7,7 @@ You will see Claude connect to the internet and:
 * Self-correct LSD SQL
 * Run LSD SQL that's connected to cloud browsers
 
-![Getting trending repositories using LSD](/media/github_trending.gif)
+![Getting trending repositories using LSD](/media/5x_speed.gif)
 
 We treated Claude to psychedelic therapy on LSD and now it can just do things. [Here's a longer video on YouTube](https://youtu.be/s97G-E46-Yo)
 
