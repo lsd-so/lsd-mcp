@@ -69,7 +69,7 @@ If it's the first time in a chat session where you'd like to have Claude use LSD
 See the [`write_lsd_sql` function](https://github.com/lsd-so/lsd-mcp/blob/main/app.py#L48) if you're interested in how it works but it just boils down to a [convenient rule we added to our SCAN keyword](https://lsd.so/docs/database/language/keywords/scan#example) enabling a developer or LLM to retrieve the documentation for our language in markdown ([if you'd like to run it yourself](https://lsd.so/app?query=SCAN%20https%3A%2F%2Flsd.so%2Fdocs)).
 
 ```
-SCAN https://lsd.so/docs
+SCAN https://lsd.so/docs/database/language
 ```
 
 ### Failed to start MCP server

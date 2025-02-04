@@ -57,7 +57,7 @@ def view_lsd(lsd_sql_code: str) -> str:
 def fetch_lsd_docs() -> List[Dict[str, str]]:
     conn = establish_connection()
     with conn.cursor() as curs:
-        curs.execute("SCAN https://lsd.so/docs")
+        curs.execute("SCAN https://lsd.so/docs/database/language")
         rows = curs.fetchall()
         return [{"URL": r[0], "MARKDOWN": r[1]} for r in rows]
 
@@ -66,7 +66,7 @@ def write_lsd_sql(objective: str) -> str:
     # Programmatically inserting docs to context
     conn = establish_connection()
     with conn.cursor() as curs:
-        curs.execute("SCAN https://lsd.so/docs")
+        curs.execute("SCAN https://lsd.so/docs/database/language")
         rows = curs.fetchall()
         lsd_docs = [{"URL": r[0], "MARKDOWN": r[1]} for r in rows]
 
@@ -77,7 +77,7 @@ def write_and_run_lsd_sql(objective: str) -> str:
     # Programmatically inserting docs to context
     conn = establish_connection()
     with conn.cursor() as curs:
-        curs.execute("SCAN https://lsd.so/docs")
+        curs.execute("SCAN https://lsd.so/docs/database/language")
         rows = curs.fetchall()
         lsd_docs = [{"URL": r[0], "MARKDOWN": r[1]} for r in rows]
 
