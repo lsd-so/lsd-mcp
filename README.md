@@ -79,7 +79,7 @@ SCAN https://lsd.so/docs
 If you encounter error messages when starting Claude desktop along the lines of the following message:
 
 ```
-Failed to start MCP server: Could not start MCP server LSD: Error: sapawn uv ENOENT
+Failed to start MCP server: Could not start MCP server LSD: Error: spawn uv ENOENT
 ```
 
 #### First time running an MCP server
