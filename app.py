@@ -53,6 +53,24 @@ def view_lsd(lsd_sql_code: str) -> str:
     """"Returns a URL to a page where the user can view results as well as a visual playback of LSD SQL evaluation"""
     return f"https://lsd.so/view?query={urllib.parse.quote_plus(lsd_sql_code)}"
 
+@mcp.tool()
+def search_trips(query: str) -> List[Dict[str, str]]:
+    """Returns a list of objects with LSD trips available to the user and what each of them do."""
+    conn = establish_connection()
+    with conn.cursor() as curs:
+        curs.execute(f"SEARCH {query}")
+        rows = curs.fetchall()
+        return [{"AUTHOR": r[0], "NAME": r[1], "DESCRIPTION": r[2], "STATEMENT": r[3], "IDENTIFIER": r[4]} for r in rows]
+
+@mcp.tool()
+def use_trip(trip_identifier: str) -> List[Dict[str, str]]:
+    """Invokes a trip on LSD based on its identifier using the [ACCORDING TO] keywords."""
+    conn = establish_connection()
+    with conn.cursor() as curs:
+        curs.execute(f"ACCORDING TO {trip_identifier}")
+        rows = curs.fetchall()
+        return [list(r) for r in rows]
+
 @mcp.resource("lsd://docs")
 def fetch_lsd_docs() -> List[Dict[str, str]]:
     conn = establish_connection()
