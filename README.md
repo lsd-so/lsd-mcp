@@ -23,6 +23,7 @@ We treated Claude to psychedelic therapy on LSD and now it can just do things. [
   * [Claude on LSD](#claude-on-lsd)
   * [Failed to start MCP server](#failed-to-start-mcp-server)
 	* [First time running an MCP server](#first-time-running-an-mcp-server)
+	* [Missing executable](#missing-executable)
 	* [Incomplete path](#incomplete-path)
 * [What is MCP?](#what-is-mcp)
 * [What is LSD?](#what-is-lsd)
@@ -89,6 +90,20 @@ Failed to start MCP server: Could not start MCP server LSD: Error: spawn uv ENOE
 #### First time running an MCP server
 
 If this is your first time using an MCP server on your computer than, to remedy the error shown above, follow the instructions [under the **Add the Filesystem MCP Server** step](https://modelcontextprotocol.io/quickstart/user#2-add-the-filesystem-mcp-server) to create a `claude_desktop_config.json` file that Claude desktop can know to refer to.
+
+#### Missing executable
+
+Additionally, if you've never done anything relating to [Postgres](https://www.postgresql.org/) on your computer, then you may encounter an error message containing something like the following:
+
+```
+Error: pg_config executable not found.
+```
+
+To fix, simply install `postgres` to your machine using an available package manager. If you're on a Mac, you can do so [using brew](https://wiki.postgresql.org/wiki/Homebrew).
+
+```
+$ brew install postgres
+```
 
 #### Incomplete path
 
