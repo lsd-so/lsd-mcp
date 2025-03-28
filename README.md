@@ -1,11 +1,15 @@
 # LSD MCP server
 
+![Image displaying MCP](/media/explanation.jpg)
+
 Immediately gather an aggregation of high quality info directly from a website just by giving LSD the link via Claude MCP.
 
 You will see Claude connect to the internet and:
 * Write LSD SQL
 * Self-correct LSD SQL
 * Run LSD SQL that's connected to cloud browsers
+
+Here's a demo of what that looks like in action:
 
 ![Getting trending repositories using LSD](/media/5x_speed.gif)
 
